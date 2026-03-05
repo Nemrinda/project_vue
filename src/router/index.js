@@ -1,0 +1,36 @@
+import { createRouter, createWebHistory } from "vue-router";
+import Home from "@/pages/Home.vue";
+import Dashbaord from "@/layouts/Dashbaord.vue";
+import About from "@/pages/About.vue";
+import Product from "@/pages/Product.vue";
+
+const routes = [
+  {
+    path: "/dashboard",
+    name: "dashboard",
+    component: Dashbaord,
+    children: [
+      {
+        path: "home",
+        name: "home",
+        component: Home,
+      },
+      {
+        path: "about",
+        name: "about",
+        component: About,
+      },
+      {
+        path: "product",
+        name: "product",
+        component: Product,
+      },
+    ],
+  },
+];
+
+const router = createRouter({
+  history: createWebHistory(),
+  routes: routes,
+});
+export default router;
